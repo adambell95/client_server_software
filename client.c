@@ -28,8 +28,8 @@ int main(int argc, char *argv[])
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	if (sockfd < 0)
 		error(EXIT_FAILURE, 0, "ERROR opening socket");
-	//server = gethostbyname("129.120.151.94"); //IP address of server
-	server = gethostbyname("localhost"); //Both in the same machine [IP address 127.0.0.1]
+	server = gethostbyname("129.120.151.94"); //IP address of server
+	//server = gethostbyname("localhost"); //Both in the same machine [IP address 127.0.0.1]
 	
 	if (server == NULL)
 	{
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 		error(EXIT_FAILURE, 0, "ERROR writing to socket");
 	}
 	
-	//Receiving the message from the client
+	//Receiving back a message from the server
 	bzero(buffer,256);
 	n = read(sockfd, buffer, 255);
 	if (n < 0)
